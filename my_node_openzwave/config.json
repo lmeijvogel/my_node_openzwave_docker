@@ -1,0 +1,148 @@
+{
+  "http": {
+    "enabled": false,
+    "port": 4567
+  },
+
+  "log": {
+    "file": "/root/my_node_openzwave/log/node-zwave.log",
+    "level": "debug",
+    "stdout_level": "debug"
+  },
+
+  "lights": {
+    "uplight": {
+      "id": 2,
+      "displayName": "Uplight"
+    },
+    "diningTable": {
+      "id": 5,
+      "displayName": "Eettafel"
+    },
+    "coffeeTable": {
+      "id": 7,
+      "displayName": "Salontafel"
+    },
+    "kitchen": {
+      "id": 8,
+      "displayName": "Keuken"
+    },
+    "tv": {
+      "id": 9,
+      "displayName": "TV-meubel"
+    }
+  },
+
+  "programmes": {
+    "off": {
+      "displayName": "Uit",
+      "values": {
+        "uplight":      0,
+        "kitchen":      0,
+        "diningTable":  0,
+        "coffeeTable":  false,
+        "tv":           0
+      }
+    },
+
+    "morning": {
+      "displayName": "Ochtend",
+      "values": {
+        "uplight":      0,
+        "kitchen":     99,
+        "diningTable": 99,
+        "coffeeTable": true,
+        "tv":           0
+      }
+    },
+
+    "evening": {
+      "displayName": "Avond",
+      "values": {
+        "uplight":     50,
+        "kitchen":     14,
+        "diningTable": 30,
+        "coffeeTable": false,
+        "tv":          15
+      }
+    },
+
+    "evening_tv": {
+      "displayName": "Avond (tv-meubel uit)",
+      "values": {
+        "uplight":     50,
+        "kitchen":     14,
+        "diningTable": 30,
+        "coffeeTable": false,
+        "tv":           0
+      }
+    },
+
+    "kitchen_full": {
+      "displayName": "Keuken fel",
+      "values": {
+        "uplight":     50,
+        "kitchen":     99,
+        "diningTable": 99,
+        "coffeeTable": false,
+        "tv":          15
+      }
+    },
+
+    "night": {
+      "displayName": "Nacht (zeer gedimd)",
+      "values": {
+        "uplight":      9,
+        "kitchen":      1,
+        "diningTable":  0,
+        "coffeeTable":  false,
+        "tv":           0
+      }
+    },
+
+    "full": {
+      "displayName": "Alles aan",
+      "values": {
+        "uplight":      99,
+        "kitchen":      99,
+        "diningTable":  99,
+        "coffeeTable":  true,
+        "tv":           99
+      }
+    }
+  },
+
+  "transitions": {
+    "evening": {
+      "on": {
+        "default": "evening",
+        "evening": "kitchen_full"
+      }
+    },
+    "late_evening": {
+      "on": {
+        "default": "evening",
+        "evening": "night"
+      }
+    },
+    "morning": {
+      "on": {
+        "default": "morning"
+      }
+    },
+    "night": {
+      "on": {
+        "default": "night",
+        "night":   "morning"
+      }
+    }
+  },
+
+  "periodStarts": {
+    "00:00": "night",
+    "07:00": "morning",
+    "14:00": "evening",
+    "21:45": "late_evening",
+    "23:00": "night"
+  }
+}

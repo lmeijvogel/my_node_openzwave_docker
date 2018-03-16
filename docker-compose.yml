@@ -1,0 +1,16 @@
+version: '2'
+services:
+    driver:
+        build: ./my_node_openzwave
+        ports:
+          - "8000:8000"
+        volumes:
+          - ./my_node_openzwave/config.json:/etc/config.json
+          - ./my_node_openzwave/log:/root/my_node_openzwave/log
+        devices:
+          - /dev/ttyUSB0:/dev/ttyUSB0 
+
+    redis:
+        image: "redis"
+        expose:
+          - 6379
