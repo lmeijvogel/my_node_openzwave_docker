@@ -1,7 +1,6 @@
 FROM node:9.8.0
 
 ENV OPENZWAVE_VERSION=510a37df958d7b7108781e7a16bfe52e5831514d
-ENV MY_NODE_OPENZWAVE_VERSION=b74f5c262b6f1997311e282c12d46fd3cf5cf7f9
 
 RUN apt-get update
 RUN apt-get install -y \
@@ -22,6 +21,8 @@ RUN cd /root \
 RUN cd /root/open-zwave \
     && make install
 
+ENV MY_NODE_OPENZWAVE_VERSION=b74f5c262b6f1997311e282c12d46fd3cf5cf7f9
+
 RUN cd /root \
     && git clone https://github.com/lmeijvogel/my_node_openzwave \
     && cd my_node_openzwave \
@@ -31,6 +32,8 @@ RUN cd /root \
 RUN echo "/root/open-zwave" >/etc/ld.so.conf.d/open-zwave.conf \
     && ldconfig
 
-WORKDIR /root/my_node_openzwave/
+RUN cd /root/my_node_openzwave && sed -i -e "s/server = app.listen(port, 'localhost');/server = app.listen(port);/" rest_server.js
 
-CMD node main.js --live --config /etc/config.json
+WORKDIR /root/my_node_openzwave
+
+CMD node main.js --config /etc/config.json

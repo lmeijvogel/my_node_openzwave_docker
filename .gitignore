@@ -1,1 +1,4 @@
 my_node_openzwave/log
+redis/data/dump.rdb
+verlichting-webapp/dotenv
+verlichting-webapp/log
