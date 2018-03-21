@@ -41,9 +41,4 @@ services:
           - webapp:webapp
         volumes:
           - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-        volumes_from:
-          - ui
-    ui:
-      build: ./ui
-      volumes:
-        - /var/verlichting-webapp-elm/out
+          - /var/www/verlichting:/var/www/verlichting
