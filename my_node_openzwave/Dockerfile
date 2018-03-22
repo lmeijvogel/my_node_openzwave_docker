@@ -36,4 +36,4 @@ RUN cd /root/my_node_openzwave && sed -i -e "s/server = app.listen(port, 'localh
 
 WORKDIR /root/my_node_openzwave
 
-CMD node main.js ${LIVE} --config /etc/config.json
+CMD node main.js --config /etc/config.json

@@ -1,10 +1,10 @@
 version: '2'
+
 services:
     driver:
         devices:
           - /dev/ttyUSB0:/dev/ttyUSB0
-        environment:
-          - LIVE="--live"
+        command: node main.js --live --config /etc/config.json
     webapp:
         environment:
           - RACK_ENV=production
