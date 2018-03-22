@@ -1,0 +1,10 @@
+version: '2'
+services:
+    driver:
+        devices:
+          - /dev/ttyUSB0:/dev/ttyUSB0
+        environment:
+          - LIVE="--live"
+    webapp:
+        environment:
+          - RACK_ENV=production

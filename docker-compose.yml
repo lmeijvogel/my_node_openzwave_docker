@@ -12,8 +12,6 @@ services:
         volumes:
           - ./my_node_openzwave/config.json:/etc/config.json
           - ./my_node_openzwave/log:/root/my_node_openzwave/log
-        #devices:
-          #- /dev/ttyUSB0:/dev/ttyUSB0
         environment:
           - REDIS_HOST=redis
         depends_on:
@@ -27,7 +25,7 @@ services:
         environment:
           - UPSTREAM_SERVER_HOST=driver
           - UPSTREAM_SERVER_PORT=3000
-          - RACK_ENV=production
+          - RACK_ENV=development
           - REDIS_URL=redis://redis:6379/
         volumes:
           - ./verlichting-webapp/log:/root/verlichting-webapp/log
