@@ -11,7 +11,7 @@ services:
           - redis:redis
         volumes:
           - ../driver/config/config.json:/etc/config.json
-          - ../driver/log:/var/log/my_node_openzwave.log
+          - ../driver/log:/root/my_node_openzwave/log
         environment:
           - REDIS_HOST=redis
         depends_on:
