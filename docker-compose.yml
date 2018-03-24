@@ -10,8 +10,8 @@ services:
         links:
           - redis:redis
         volumes:
-          - ./my_node_openzwave/config.json:/etc/config.json
-          - ./my_node_openzwave/log:/root/my_node_openzwave/log
+          - ../driver/config/config.json:/etc/config.json
+          - ../driver/log:/var/log/my_node_openzwave.log
         environment:
           - REDIS_HOST=redis
         depends_on:
@@ -28,7 +28,7 @@ services:
           - RACK_ENV=development
           - REDIS_URL=redis://redis:6379/
         volumes:
-          - ./verlichting-webapp/log:/root/verlichting-webapp/log
+          - ./webapp/log:/root/verlichting-webapp/log
         depends_on:
           - driver
     nginx-verlichting:
@@ -39,4 +39,4 @@ services:
           - webapp:webapp
         volumes:
           - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-          - /var/www/verlichting:/var/www/verlichting
+          - /var/docker/openzwave/www:/var/www/verlichting
