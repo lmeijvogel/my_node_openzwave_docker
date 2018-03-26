@@ -29,14 +29,14 @@ services:
           - REDIS_URL=redis://redis:6379/
         volumes:
           - ./webapp/log:/root/verlichting-webapp/log
+          - ./webapp/dotenv:/root/verlichting-webapp/.env
         depends_on:
           - driver
-    nginx-verlichting:
+    nginx:
         image: nginx:1.13.9
         ports:
           - "8080:80"
         links:
           - webapp:webapp
         volumes:
-          - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-          - /var/docker/openzwave/www:/var/www/verlichting
+          - ../../verlichting/elm/out:/var/www/verlichting

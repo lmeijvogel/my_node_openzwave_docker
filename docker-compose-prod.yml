@@ -8,3 +8,11 @@ services:
     webapp:
         environment:
           - RACK_ENV=production
+    nginx:
+        ports:
+          - "80:80"
+        volumes:
+          - ../nginx/conf.d:/etc/nginx/conf.d
+          - /var/docker/openzwave/www:/var/www/verlichting
+          - /var/www/challenges:/var/www/challenges
+          - ../nginx/certs:/certs
