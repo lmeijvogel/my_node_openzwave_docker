@@ -18,7 +18,7 @@ services:
           - redis
 
     webapp:
-        build: ./verlichting-webapp
+        build: ./webapp
         links:
           - redis:redis
           - driver:driver
@@ -28,8 +28,8 @@ services:
           - RACK_ENV=development
           - REDIS_URL=redis://redis:6379/
         volumes:
-          - ./webapp/log:/root/verlichting-webapp/log
-          - ./webapp/dotenv:/root/verlichting-webapp/.env
+          - ../webapp/log:/root/verlichting-webapp/log
+          - ../webapp/.env:/root/verlichting-webapp/.env
         depends_on:
           - driver
     nginx:
