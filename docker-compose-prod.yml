@@ -11,6 +11,7 @@ services:
     nginx:
         ports:
           - "80:80"
+          - "443:443"
         volumes:
           - ../nginx/conf.d:/etc/nginx/conf.d
           - /var/docker/openzwave/www:/var/www/verlichting
