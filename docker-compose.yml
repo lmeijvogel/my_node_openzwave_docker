@@ -28,7 +28,6 @@ services:
           - RACK_ENV=development
           - REDIS_URL=redis://redis:6379/
         volumes:
-          - ../webapp/log:/root/verlichting-webapp/log
           - ../webapp/.env:/root/verlichting-webapp/.env
         depends_on:
           - driver
