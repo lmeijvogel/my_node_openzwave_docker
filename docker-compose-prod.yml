@@ -14,6 +14,6 @@ services:
           - "443:443"
         volumes:
           - ../nginx/conf.d:/etc/nginx/conf.d
-          - /var/docker/openzwave/www:/var/www/verlichting
+          - /var/docker/openzwave/www:/var/www/verlichting-static
           - /var/www/challenges:/var/www/challenges
           - ../nginx/certs:/certs
