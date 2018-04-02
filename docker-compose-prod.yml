@@ -13,7 +13,7 @@ services:
           - "80:80"
           - "443:443"
         volumes:
-          - ../nginx/conf.d:/etc/nginx/conf.d
-          - /var/docker/openzwave/www:/var/www/verlichting-static
-          - /var/www/challenges:/var/www/challenges
-          - ../nginx/certs:/certs
+          - ../nginx/conf.d:/etc/nginx/conf.d:ro
+          - /var/docker/openzwave/www:/var/www/verlichting-static:ro
+          - /var/www/challenges:/var/www/challenges:ro
+          - ../nginx/certs:/certs:ro

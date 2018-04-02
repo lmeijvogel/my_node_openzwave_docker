@@ -10,7 +10,7 @@ services:
         links:
           - redis:redis
         volumes:
-          - ../driver/config/config.json:/etc/config.json
+          - ../driver/config/config.json:/etc/config.json:ro
           - ../driver/log:/root/my_node_openzwave/log
         environment:
           - REDIS_HOST=redis
@@ -38,4 +38,4 @@ services:
         links:
           - webapp:webapp
         volumes:
-          - ../../verlichting/elm/out:/var/www/verlichting
+          - ../../verlichting/elm/out:/var/www/verlichting-static:ro
