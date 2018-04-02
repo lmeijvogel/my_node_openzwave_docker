@@ -5,10 +5,11 @@ services:
         devices:
           - /dev/ttyUSB0:/dev/ttyUSB0
         command: node main.js --live --config /etc/config.json
-        restart: always
+        restart: unless-stopped
     webapp:
         environment:
           - RACK_ENV=production
+        restart: unless-stopped
     nginx:
         ports:
           - "80:80"
@@ -19,3 +20,4 @@ services:
           - /var/docker/energie/www:/var/www/energie-static:ro
           - /var/www/challenges:/var/www/challenges:ro
           - ../nginx/certs:/certs:ro
+        restart: unless-stopped
