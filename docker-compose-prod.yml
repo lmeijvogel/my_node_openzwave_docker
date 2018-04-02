@@ -5,6 +5,7 @@ services:
         devices:
           - /dev/ttyUSB0:/dev/ttyUSB0
         command: node main.js --live --config /etc/config.json
+        restart: always
     webapp:
         environment:
           - RACK_ENV=production
