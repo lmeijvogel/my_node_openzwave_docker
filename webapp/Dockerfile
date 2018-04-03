@@ -3,7 +3,7 @@ FROM ruby:2.3.6
 RUN cd /root \
     && git clone https://github.com/lmeijvogel/verlichting-webapp
 
-ENV WEBAPP_VERSION=b6e683b407c51f0239f20ab848c1aa7e6af0444e
+ENV WEBAPP_VERSION=faa0f180e7f5294fa8bc3072ee7e6a1ff22d592c
 
 RUN cd /root/verlichting-webapp \
     && git fetch \
