@@ -35,8 +35,6 @@ services:
           - driver
     nginx:
         image: nginx:1.13.9
-        ports:
-          - "8080:80"
         links:
           - webapp:webapp
         volumes:
