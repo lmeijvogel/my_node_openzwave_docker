@@ -12,6 +12,9 @@ services:
         environment:
           - RACK_ENV=production
         restart: unless-stopped
+    freshrss:
+        volumes:
+          - /var/docker/freshrss:/var/www/html/data
     nginx:
         ports:
           - "80:80"

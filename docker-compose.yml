@@ -33,9 +33,15 @@ services:
           - ../webapp/.env:/root/verlichting-webapp/.env:ro
         depends_on:
           - driver
+    freshrss:
+        build: ./freshrss
+        volumes:
+          - freshrss_data:/var/www/html/data
     nginx:
         image: nginx:1.13.9
         links:
           - webapp:webapp
         volumes:
           - ../../verlichting/elm/out:/var/www/verlichting-static:ro
+volumes:
+    freshrss_data:
