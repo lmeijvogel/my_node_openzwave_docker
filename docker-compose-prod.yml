@@ -15,6 +15,7 @@ services:
     freshrss:
         volumes:
           - /var/docker/freshrss:/var/www/html/data
+        restart: unless-stopped
     nginx:
         ports:
           - "80:80"
