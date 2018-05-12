@@ -27,3 +27,13 @@ services:
           - /var/www/challenges:/var/www/challenges:ro
           - ../nginx/certs:/certs:ro
         restart: unless-stopped
+    bookstack:
+        env_file:
+          - /var/docker/bookstack/.env
+        restart: unless-stopped
+    bookstack_db:
+        env_file:
+          - /var/docker/bookstack/.env
+        volumes:
+          - /var/docker/bookstack:/var/lib/mysql
+        restart: unless-stopped

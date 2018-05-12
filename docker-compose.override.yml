@@ -18,6 +18,16 @@ services:
           - RACK_ENV=development
         ports:
           - "8001:3000"
+    bookstack:
+        ports:
+          - "8002:80"
+        environment:
+          - DB_PASSWORD=bookstack
+          - MYSQL_ROOT_PASSWORD=root_password
+    bookstack_db:
+        environment:
+          - MYSQL_PASSWORD=bookstack
+          - MYSQL_ROOT_PASSWORD=root_password
     freshrss:
         ports:
           - "80:80"

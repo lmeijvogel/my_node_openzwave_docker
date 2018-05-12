@@ -37,6 +37,20 @@ services:
         build: ./freshrss
         volumes:
           - freshrss_data:/var/www/html/data
+    bookstack:
+        image: "solidnerd/bookstack"
+        environment:
+          - DB_HOST=bookstack_db
+          - DB_DATABASE=bookstack
+          - DB_USER=bookstack
+        depends_on:
+          - bookstack_db
+    bookstack_db:
+        image: "mysql:5.7.21"
+        environment:
+          - MYSQL_DATABASE=bookstack
+          - MYSQL_USER=bookstack
+
     nginx:
         image: nginx:1.13.9
         links:
