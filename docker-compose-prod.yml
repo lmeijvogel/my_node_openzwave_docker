@@ -12,10 +12,6 @@ services:
         environment:
           - RACK_ENV=production
         restart: unless-stopped
-    freshrss:
-        volumes:
-          - /var/docker/freshrss:/var/www/html/data
-        restart: unless-stopped
     nginx:
         ports:
           - "80:80"
@@ -36,4 +32,12 @@ services:
           - /var/docker/bookstack/.env
         volumes:
           - /var/docker/bookstack:/var/lib/mysql
+        restart: unless-stopped
+    tt-rss:
+        restart: unless-stopped
+    tt-rss-db:
+        env_file:
+          - /var/docker/tt-rss/.env
+        restart: unless-stopped
+    tt-rss-updater:
         restart: unless-stopped

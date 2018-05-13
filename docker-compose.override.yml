@@ -28,6 +28,11 @@ services:
         environment:
           - MYSQL_PASSWORD=bookstack
           - MYSQL_ROOT_PASSWORD=root_password
-    freshrss:
+    tt-rss:
         ports:
           - "80:80"
+    tt-rss-db:
+        environment:
+          - POSTGRES_USER=tt-rss
+          - POSTGRES_PASSWORD=tt-rss
+          - POSTGRES_DB=tt-rss

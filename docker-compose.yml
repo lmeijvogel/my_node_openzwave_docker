@@ -33,10 +33,25 @@ services:
           - ../webapp/.env:/root/verlichting-webapp/.env:ro
         depends_on:
           - driver
-    freshrss:
-        build: ./freshrss
+    tt-rss:
+        build: ./tt-rss
         volumes:
-          - freshrss_data:/var/www/html/data
+          - ../tt-rss/config.php:/var/www/html/config.php
+        depends_on:
+          - tt-rss-db
+    tt-rss-updater:
+        build: ./tt-rss
+        environment:
+          - PHP_EXECUTABLE=/usr/local/bin/php
+        volumes:
+          - ../tt-rss/config.php:/var/www/html/config.php:ro
+        depends_on:
+          - tt-rss-db
+          - tt-rss
+        command: /bin/bash -c "php ./update.php --daemon"
+        user: www-data
+    tt-rss-db:
+        image: "postgres:10.0"
     bookstack:
         image: "solidnerd/bookstack"
         environment:
@@ -57,5 +72,3 @@ services:
           - webapp:webapp
         volumes:
           - ../../verlichting/elm/out:/var/www/verlichting-static:ro
-volumes:
-    freshrss_data:
