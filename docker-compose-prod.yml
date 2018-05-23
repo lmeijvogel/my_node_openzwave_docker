@@ -6,7 +6,7 @@ services:
     driver:
         devices:
           - /dev/ttyUSB0:/dev/ttyUSB0
-        command: node main.js --live --config /etc/config.json
+        command: yarn start --live --config /etc/config.json
         restart: unless-stopped
     webapp:
         environment:

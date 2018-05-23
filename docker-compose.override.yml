@@ -3,7 +3,7 @@ version: '2'
 # These are the development overrides for the application
 services:
     driver:
-        command: node main.js --config /etc/config.json
+        command: yarn start --config /etc/config.json
     nginx:
         ports:
           - "8000:80"
