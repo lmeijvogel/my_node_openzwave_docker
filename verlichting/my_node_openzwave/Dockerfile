@@ -34,6 +34,9 @@ RUN echo "/root/open-zwave" >/etc/ld.so.conf.d/open-zwave.conf \
 
 RUN cd /root/my_node_openzwave && sed -i -e "s/server = app.listen(port, 'localhost');/server = app.listen(port);/" rest_server.js
 
+ENV TZ=Europe/Amsterdam
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 WORKDIR /root/my_node_openzwave
 
 CMD node main.js --config /etc/config.json
