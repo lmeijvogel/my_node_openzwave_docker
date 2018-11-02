@@ -72,3 +72,5 @@ services:
           - webapp:webapp
         volumes:
           - ../../verlichting/elm/out:/var/www/verlichting-static:ro
+    nextcloud:
+        image: "nextcloud:14.0.3-apache"

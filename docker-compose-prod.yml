@@ -43,3 +43,7 @@ services:
         restart: unless-stopped
     tt-rss-updater:
         restart: unless-stopped
+    nextcloud:
+        volumes:
+          - /var/docker/nextcloud/:/var/www/html
+        restart: unless-stopped
