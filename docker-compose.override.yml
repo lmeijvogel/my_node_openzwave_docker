@@ -36,8 +36,3 @@ services:
           - POSTGRES_USER=tt-rss
           - POSTGRES_PASSWORD=tt-rss
           - POSTGRES_DB=tt-rss
-    nextcloud:
-        ports:
-          - "8080:80"
-        volumes:
-          - ../nextcloud/:/var/www/html
