@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 
 # These are the development overrides for the application
 services:
