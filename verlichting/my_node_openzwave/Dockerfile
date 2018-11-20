@@ -22,7 +22,7 @@ RUN cd /root \
 RUN cd /root/open-zwave \
     && make install
 
-ENV MY_NODE_OPENZWAVE_VERSION=a1c8bce3bb8cbc05dbdf51b9e694cd9084e89920
+ENV MY_NODE_OPENZWAVE_VERSION=6e240864137a9cb4914088e4ea24d5a09326bea8
 
 RUN cd /root \
     && git clone https://github.com/lmeijvogel/my_node_openzwave \
