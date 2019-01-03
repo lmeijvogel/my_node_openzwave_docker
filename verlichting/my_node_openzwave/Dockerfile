@@ -22,8 +22,7 @@ RUN cd /root \
 RUN cd /root/open-zwave \
     && make install
 
-ENV MY_NODE_OPENZWAVE_VERSION=10c42343234347da33c8fa487406a108a3598d40
-
+ENV MY_NODE_OPENZWAVE_VERSION=11ad630eb49039d63de0b2d726afc97e9f75536d
 RUN cd /root \
     && git clone https://github.com/lmeijvogel/my_node_openzwave \
     && cd my_node_openzwave \
@@ -38,6 +37,6 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 WORKDIR /root/my_node_openzwave
 
-RUN sed -i -e "s/server = app.listen(port, 'localhost');/server = app.listen(port);/" rest_server.ts
+RUN sed -i -e "s/server = app.listen(port, 'localhost');/server = app.listen(port);/" RestServer.ts
 
 CMD yarn start --config /etc/config.json
