@@ -37,6 +37,4 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 WORKDIR /root/my_node_openzwave
 
-RUN sed -i -e "s/server = app.listen(port, 'localhost');/server = app.listen(port);/" RestServer.ts
-
 CMD yarn start --config /etc/config.json
