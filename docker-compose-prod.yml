@@ -26,13 +26,3 @@ services:
           - /var/www/challenges:/var/www/challenges:ro
           - ../nginx/certs:/certs:ro
         restart: unless-stopped
-    tt-rss:
-        restart: unless-stopped
-    tt-rss-db:
-        env_file:
-          - /var/docker/tt-rss/.env
-        volumes:
-          - /var/docker/tt-rss/data:/var/lib/postgresql/data
-        restart: unless-stopped
-    tt-rss-updater:
-        restart: unless-stopped

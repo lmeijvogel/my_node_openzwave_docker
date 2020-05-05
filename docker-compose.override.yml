@@ -18,11 +18,3 @@ services:
           - RACK_ENV=development
         ports:
           - "8001:3000"
-    tt-rss:
-        ports:
-          - "80:80"
-    tt-rss-db:
-        environment:
-          - POSTGRES_USER=tt-rss
-          - POSTGRES_PASSWORD=tt-rss
-          - POSTGRES_DB=tt-rss
