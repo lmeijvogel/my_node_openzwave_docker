@@ -4,17 +4,3 @@ version: '3'
 services:
     driver:
         command: yarn start --config /etc/config.json
-    nginx:
-        ports:
-          - "8000:80"
-        volumes:
-          - ../nginx/conf.d:/etc/nginx/conf.d:ro
-          - /var/docker/openzwave/www:/var/www/verlichting-static:ro
-          - /var/docker/energie/www:/var/www/energie-static:ro
-          - /var/www/challenges:/var/www/challenges:ro
-          - ../nginx/certs:/certs:ro
-    webapp:
-        environment:
-          - RACK_ENV=development
-        ports:
-          - "8001:3000"

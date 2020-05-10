@@ -15,14 +15,3 @@ services:
           - RACK_ENV=production
           - TZ=Europe/Amsterdam
         restart: unless-stopped
-    nginx:
-        ports:
-          - "80:80"
-          - "443:443"
-        volumes:
-          - ../nginx/conf.d:/etc/nginx/conf.d:ro
-          - /var/docker/openzwave/www:/var/www/verlichting-static:ro
-          - /var/docker/energie/www:/var/www/energie-static:ro
-          - /var/www/challenges:/var/www/challenges:ro
-          - ../nginx/certs:/certs:ro
-        restart: unless-stopped
