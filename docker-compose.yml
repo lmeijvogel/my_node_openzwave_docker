@@ -8,7 +8,7 @@ services:
           - "127.0.0.1:6379:6379"
 
     driver:
-        build: ./verlichting/my_node_openzwave
+        build: ./_dockerfiles/my_node_openzwave
         links:
           - redis:redis
         volumes:
@@ -20,7 +20,7 @@ services:
           - redis
 
     webapp:
-        build: ./verlichting/webapp
+        build: ./_dockerfiles/webapp
         links:
           - redis:redis
           - driver:driver
