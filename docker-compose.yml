@@ -12,8 +12,8 @@ services:
         links:
           - redis:redis
         volumes:
-          - ../driver/config/config.json:/etc/config.json:ro
-          - ../driver/log:/root/my_node_openzwave/log
+          - ./driver/config/config.json:/etc/config.json:ro
+          - ./driver/log:/root/my_node_openzwave/log
         environment:
           - REDIS_HOST=redis
         depends_on:
@@ -30,7 +30,7 @@ services:
           - RACK_ENV=development
           - REDIS_URL=redis://redis:6379/
         volumes:
-          - ../webapp/.env:/root/verlichting-webapp/.env:ro
+          - ./webapp/.env:/root/verlichting-webapp/.env:ro
         ports:
           - "8880:3000"
         depends_on:
